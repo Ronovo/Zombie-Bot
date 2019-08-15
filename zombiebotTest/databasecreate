@@ -1,0 +1,68 @@
+import sqlite3
+
+conn = sqlite3.connect('test.db')
+print("Opened database successfully")
+
+# User Table
+# USERID - Users Discord ID
+# CHARACTER1 - Link to Character Table
+conn.execute('''CREATE TABLE USER
+         (
+         USERID TEXT, 
+         CHARACTER INT, -- link to character table
+         GRAVE1 INT,
+         GRAVE2 INT,
+         GRAVE3 INT
+         );''')
+
+print("USER created successfully")
+
+# CHARACTER TABLE Table
+# Linked to by User Table
+# Character Sheet Values
+conn.execute('''CREATE TABLE CHARACTER
+         (
+         EXPERIENCE INT,
+         LEVEL INT,
+         NAME TEXT,
+         HP INT,
+         MAXHP INT,
+         AGILITY INT,
+         CHARISMA INT,
+         STRENGTH INT,
+         INTIMIDATION INT,
+         TINKERING INT,
+         EXPLORATION INT,
+         READY TEXT,
+         KILLS INT
+         );''')
+print("CHARACTER created successfully")
+
+# BASE TABLE Table
+# Contains information about the base
+# Roster, resources, etc.
+# Character Sheet Values
+conn.execute('''CREATE TABLE BASE
+         (
+         SERVERID INT, -- discord id
+         NAME TEXT,
+         DEFENSE INT,
+         FOOD INT,
+         WATER INT,
+         MEDICAL INT,
+         WOOD INT,
+         STONE INT,
+         METAL INT
+         );''')
+print("BASE created successfully")
+
+# MEMBERS  Table
+# LINKS USERS TO BASES
+conn.execute('''CREATE TABLE MEMBERS
+         (
+         SERVERID INT,
+         USERID TEXT
+         );''')
+print("MEMBERS created successfully")
+
+conn.close()
