@@ -2,7 +2,6 @@
 
 Discord bot that turns your Discord Server into the Apocalypse. 
 
-Join the test server!
-https://discord.gg/YmwvQBW
+TEST SERVER CLOSED UNTIL FURTHER NOTICE
 
 Feature List Coming Soon!
